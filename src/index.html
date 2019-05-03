@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="veiwport" content="width=device-width, initial scale=1">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <title>Weather App</title>
+    </head>
+
+
+    <body>
+        <div class="searchBox"> 
+            <h1 style="color: #b2b2b2">Find a Forecast</h1>
+            <input type="text" id="searchInput" placeholder="Search by City/Zip">
+            <button class="searchButton btn btn-primary" id="searchButton"><i class="fas fa-search-location"></i> Search</button>
+        </div>
+
+
+        <div class="location">
+            <h2 class="time-zone">Timezone</h2>
+            <canvas class="icon" width="128" height="128"></canvas>
+        </div>
+
+
+        <div class="temperature">
+            <div class="degree-section">
+                <h2 class="degree">26</h2>
+                <span>F</span>
+                
+            </div>
+
+            <div class="weather-description">
+                <h3>Warm weather</h3>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/skycons.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+    </body>
+</html>
