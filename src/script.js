@@ -1,9 +1,10 @@
 
 let apikey = '798422d71abce6f23b60300571e71747'; 
-let units = 'imperical';
+let units = 'imperial';
 let method;
 
 window.addEventListener('load', () => {
+    'use strict'
     let longitude;
     let latitude;
     let temperatureDescription = document.querySelector('.weather-description h3');
@@ -11,6 +12,7 @@ window.addEventListener('load', () => {
     let timezone = document.querySelector('.time-zone');
     let temperatureSection = document.querySelector('.temperature'); 
     let temperatureSpan = document.querySelector('.temperature span');
+
 
     // request access to user location upon loading the page
     if(navigator.geolocation) {
@@ -67,26 +69,26 @@ function weatherSummary(smry) {
     switch(smry) {
         
         case 'Clear':
-            document.body.style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../images/photo1.jpg")';
+            document.getElementById('body').style.background = 'linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("images/photo1.jpg")';
             break;
         case 'Drizzle':
         case 'Light Rain':
         case 'Rain':
-            document.body.style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../images/rain.jpg")';
+            document.getElementById('body').style.background = 'linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("images/rain.jpg")';
             break;
 
         case 'Overcast':
         case 'Mostly Cloudy':
-            document.body.style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../images/overcast.jpg")';
+            document.getElementById('body').style.background = 'linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("images/overcast.jpg")';
             break;
 
         case 'Partly Cloudy':
-            document.body.style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../images/partlycloudy.jpg")';
+            document.getElementById('body').style.background = 'linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("images/partlycloudy.jpg")';
 
             break;
 
         case 'Snow':
-            document.body.style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../images/snow.jpg")';
+            document.getElementById('body').style.background = 'linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("images/snow.jpg")';
             break;
 
         default:
@@ -115,8 +117,7 @@ function updateWeather(lon, lat) {
     let temperatureDescription = document.querySelector('.weather-description h3');
     let temperatureDeg = document.querySelector('.degree');
     let timezone = document.querySelector('.time-zone');
-    let temperatureSection = document.querySelector('.temperature'); 
-    let temperatureSpan = document.querySelector('.temperature span');
+    
 
     const proxy = 'https://cors-anywhere.herokuapp.com/';
     const api = `${proxy}https://api.darksky.net/forecast/03a70601efdf246a15f41478e2e6f2c3/${lat},${lon}`;
@@ -144,7 +145,7 @@ function updateWeather(lon, lat) {
 
 function searchWeather(locationName) {
     getSearchMethod(locationName);
-    fetch(`http://api.openweathermap.org/data/2.5/weather?${method}=${locationName}&APPID=${apikey}&units=${units}`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?${method}=${locationName}&APPID=${apikey}&units=${units}`)
     .then(response => {
         return response.json();
     }).then(responseData => {
